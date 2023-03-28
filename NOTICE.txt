@@ -1,0 +1,7 @@
+This software includes code from IntelliJ IDEA Community Edition
+Copyright (C) JetBrains s.r.o.
+https://www.jetbrains.com/idea/
+
+This software includes code from JBDiff library
+Copyright (C) Digital Revolution BV (123inkt.nl).
+https://www.github.com/123inkt/jbdiff/

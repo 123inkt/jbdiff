@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpfci xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="vendor/digitalrevolution/phpunit-file-coverage-inspection/resources/phpfci.xsd" min-coverage="100">
+    <custom-coverage>
+        <file path="src/Diff/AdjustmentPunctuationMatcher/AdjustmentPunctuationMatcher.php" min="86"/>
+        <file path="src/Diff/ByWordRt.php" min="95"/>
+        <file path="src/Diff/Comparison/AbstractChunkOptimizer.php" min="60"/>
+        <file path="src/Diff/Comparison/LineFragmentSplitter.php" min="74"/>
+        <file path="src/Diff/Comparison/WordChunkOptimizer.php" min="3"/>
+        <file path="src/Diff/Util/Diff.php" min="70"/>
+        <file path="src/Diff/Util/LCS/PatienceIntLCS.php" min="82"/>
+        <file path="src/Diff/Util/Reindexer.php" min="12"/>
+        <file path="src/Entity/LineFragmentSplitter/DiffFragment.php" min="85"/>
+    </custom-coverage>
+</phpfci>

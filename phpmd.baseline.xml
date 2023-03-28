@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<phpmd-baseline>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/Diff/AdjustmentPunctuationMatcher/AdjustmentPunctuationMatcher.php" method="matchBackwardRange"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="src/Diff/ByWordRt.php"/>
+  <violation rule="PHPMD\Rule\Naming\ShortVariable" file="src/Diff/ByWordRt.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="src/Diff/Util/LCS/MyersLCS.php" method="executeAlgorithm"/>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/Diff/Util/LCS/MyersLCS.php" method="executeAlgorithm"/>
+  <violation rule="PHPMD\Rule\Design\NpathComplexity" file="src/Diff/Util/LCS/MyersLCS.php" method="executeAlgorithm"/>
+  <violation rule="PHPMD\Rule\Design\LongMethod" file="src/Diff/Util/LCS/MyersLCS.php" method="executeAlgorithm"/>
+  <violation rule="PHPMD\Rule\Naming\ShortVariable" file="src/Diff/Util/LCS/MyersLCS.php"/>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/Diff/Util/LCS/PatienceIntLCS.php" method="executeAlgorithm"/>
+  <violation rule="PHPMD\Rule\Design\NpathComplexity" file="src/Diff/Util/LCS/PatienceIntLCS.php" method="executeAlgorithm"/>
+  <violation rule="PHPMD\Rule\Naming\ShortVariable" file="src/Diff/Util/LCS/PatienceIntLCS.php"/>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/Diff/Util/LCS/UniqueLCS.php" method="execute"/>
+  <violation rule="PHPMD\Rule\Design\NpathComplexity" file="src/Diff/Util/LCS/UniqueLCS.php" method="execute"/>
+  <violation rule="PHPMD\Rule\Naming\ShortVariable" file="src/Diff/Util/LCS/UniqueLCS.php"/>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/Diff/Util/Reindexer.php" method="reindex"/>
+  <violation rule="PHPMD\Rule\Design\NpathComplexity" file="src/Diff/Util/Reindexer.php" method="reindex"/>
+  <violation rule="PHPMD\Rule\Naming\ShortVariable" file="src/Diff/Util/Reindexer.php"/>
+  <violation rule="PHPMD\Rule\Naming\ShortVariable" file="src/Entity/Character/MergingCharSequence.php"/>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/LineBlockTextIterator.php" method="getIterator"/>
+  <violation rule="PHPMD\Rule\Design\NpathComplexity" file="src/LineBlockTextIterator.php" method="getIterator"/>
+  <violation rule="PHPMD\Rule\CyclomaticComplexity" file="src/Util/Strings.php" method="equalsIgnoreWhitespaces"/>
+  <violation rule="PHPMD\Rule\Design\NpathComplexity" file="src/Util/Strings.php" method="equalsIgnoreWhitespaces"/>
+  <violation rule="PHPMD\Rule\UnusedFormalParameter" file="tests/Unit/Diff/Comparison/Iterables/AbstractChangeDiffIterableTest.php"/>
+</phpmd-baseline>
