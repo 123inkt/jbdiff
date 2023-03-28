@@ -1,8 +1,7 @@
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.1-8892BF)](https://php.net/)
 [![PHPStan](https://img.shields.io/badge/phpstan-enabled-4BC51D)](https://www.phpstan.com/)
 [![codecov](https://codecov.io/gh/123inkt/jbdiff/branch/master/graph/badge.svg)](https://app.codecov.io/gh/123inkt/jbdiff)
-[![Build Status](https://github.com/123inkt/jbdiff/workflows/Check/badge.svg?branch=master)](https://github.com/123inkt/jbdiff/actions)
-[![Build Status](https://github.com/123inkt/jbdiff/workflows/Test/badge.svg?branch=master)](https://github.com/123inkt/jbdiff/actions)
+[![Build Status](https://github.com/123inkt/jbdiff/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/123inkt/jbdiff/actions)
 
 
 # JBDiff
