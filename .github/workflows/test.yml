@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: composer update --prefer-dist --no-progress --no-suggest --prefer-stable ${{ matrix.composer-flags }}
       - name: Run test suite
-        run: composer test
+        run: php -dzend.assertions=1 vendor/bin/phpunit
   coverage:
     name: PHP coverage
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: composer update --prefer-dist --no-progress --no-suggest --prefer-stable
       - name: Run test suite
-        run: php -dpcov.enabled=1 -dpcov.exclude="~vendor~" vendor/bin/phpunit --testsuite unit --coverage-clover ./.coverage/coverage.xml
+        run: php -dzend.assertions=1 -dpcov.enabled=1 -dpcov.exclude="~vendor~" vendor/bin/phpunit --testsuite unit --coverage-clover ./.coverage/coverage.xml
       - name: Check coverage
         run: test ! -f ./.coverage/coverage.xml || php vendor/bin/phpfci inspect ./.coverage/coverage.xml --reportText --exit-code-on-failure
   quality:
