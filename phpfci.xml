@@ -11,5 +11,6 @@
         <file path="src/Diff/Util/LCS/PatienceIntLCS.php" min="82"/>
         <file path="src/Diff/Util/Reindexer.php" min="12"/>
         <file path="src/Entity/LineFragmentSplitter/DiffFragment.php" min="85"/>
+        <file path="src/LineBlockTextIterator.php" min="96"/>
     </custom-coverage>
 </phpfci>
