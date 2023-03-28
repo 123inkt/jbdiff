@@ -27,7 +27,7 @@
     },
     "require-dev": {
         "digitalrevolution/accessorpair-constraint": "^2.1",
-        "digitalrevolution/phpunit-file-coverage-inspection": "^1.6",
+        "digitalrevolution/phpunit-file-coverage-inspection": "^2.0",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.7",
         "phpmd/phpmd": "^2.13",
@@ -50,7 +50,7 @@
         "test:unit": "phpunit --testsuite unit",
         "test:coverage": [
             "@php vendor/bin/phpunit --coverage-clover coverage/coverage.xml --coverage-html coverage",
-            "@php vendor/bin/phpfci inspect coverage/coverage.xml php://stdout --exit-code-on-failure --report=text"
+            "@php vendor/bin/phpfci inspect coverage/coverage.xml --exit-code-on-failure --reportText"
         ],
         "example": "@php -S localhost:8000 -t example/"
     }
