@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace DR\JBDiff\Tests\Unit\Util;
 
-use ArithmeticError;
 use AssertionError;
 use DR\JBDiff\Util\BitSet;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -68,7 +67,7 @@ class BitSetTest extends TestCase
     {
         $bitSet = new BitSet();
 
-        $this->expectException(ArithmeticError::class);
+        $this->expectException(AssertionError::class);
         $bitSet->set(-1);
     }
 
