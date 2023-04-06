@@ -5,6 +5,7 @@ namespace DR\JBDiff\Tests\Unit\Entity\Character;
 
 use DR\JBDiff\Entity\Character\CharSequence;
 use DR\JBDiff\Entity\Range;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -12,6 +13,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(CharSequence::class)]
 class CharSequenceTest extends TestCase
 {
+    public function testNonUTF8Failure(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Failed to split string in utf8 parts: ');
+        CharSequence::fromString("hell\xe3o");
+    }
+
     public function testLengthReturnsNumberOfCharacters(): void
     {
         $charSequence = CharSequence::fromString('hello');

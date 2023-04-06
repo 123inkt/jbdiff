@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace DR\JBDiff\Entity\Character;
 
 use DR\JBDiff\Entity\EquatableInterface;
+use InvalidArgumentException;
 use function count;
 use function assert;
 
@@ -56,7 +57,9 @@ class CharSequence implements CharSequenceInterface
     public static function fromString(string $string): self
     {
         $chars = preg_split('//u', $string, -1, PREG_SPLIT_NO_EMPTY);
-        assert($chars !== false);
+        if ($chars === false) {
+            throw new InvalidArgumentException('Failed to split string in utf8 parts: ' . substr($string, 0, 50) . '...');
+        }
 
         return new CharSequence($chars);
     }
