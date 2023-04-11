@@ -36,8 +36,8 @@ class LineBlockTextIterator implements IteratorAggregate
      */
     public function getIterator(): Traversable
     {
-        $previousEndOffset1 = null;
-        $previousEndOffset2 = null;
+        $previousEndOffset1 = 0;
+        $previousEndOffset2 = 0;
         foreach ($this->blocks as $block) {
             foreach ($block->fragments as $fragment) {
                 $startOffset1 = $block->offsets->start1 + $fragment->getStartOffset1();
@@ -46,10 +46,10 @@ class LineBlockTextIterator implements IteratorAggregate
                 $endOffset2   = $block->offsets->start2 + $fragment->getEndOffset2();
 
                 // unchanged text before
-                yield from $this->yieldText(self::TEXT_UNCHANGED_BEFORE, $this->text1, $previousEndOffset1 ?? 0, $startOffset1);
+                yield from $this->yieldText(self::TEXT_UNCHANGED_BEFORE, $this->text1, $previousEndOffset1, $startOffset1);
 
                 // unchanged text after
-                yield from $this->yieldText(self::TEXT_UNCHANGED_AFTER, $this->text2, $previousEndOffset2 ?? 0, $startOffset2);
+                yield from $this->yieldText(self::TEXT_UNCHANGED_AFTER, $this->text2, $previousEndOffset2, $startOffset2);
 
                 // removed text
                 yield from $this->yieldText(self::TEXT_REMOVED, $this->text1, $startOffset1, $endOffset1);
@@ -63,13 +63,8 @@ class LineBlockTextIterator implements IteratorAggregate
             }
         }
 
-        if ($previousEndOffset1 !== null) {
-            yield from $this->yieldText(self::TEXT_UNCHANGED_BEFORE, $this->text1, $previousEndOffset1, mb_strlen($this->text1));
-        }
-
-        if ($previousEndOffset2 !== null) {
-            yield from $this->yieldText(self::TEXT_UNCHANGED_AFTER, $this->text2, $previousEndOffset2, mb_strlen($this->text2));
-        }
+        yield from $this->yieldText(self::TEXT_UNCHANGED_BEFORE, $this->text1, $previousEndOffset1, mb_strlen($this->text1));
+        yield from $this->yieldText(self::TEXT_UNCHANGED_AFTER, $this->text2, $previousEndOffset2, mb_strlen($this->text2));
     }
 
     /**
