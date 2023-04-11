@@ -39,6 +39,21 @@ class LineBlockTextIteratorTest extends TestCase
         static::assertSame($expected, $texts);
     }
 
+    public function testGetIteratorWithoutChanges(): void
+    {
+        $fragments  = [];
+        $lineBlocks = [new LineBlock($fragments, new Range(0, 9, 0, 9), 1, 1)];
+
+        $texts = iterator_to_array(new LineBlockTextIterator("unchanged", "unchanged", $lineBlocks), false);
+
+        $expected = [
+            [LineBlockTextIterator::TEXT_UNCHANGED_BEFORE, "unchanged"],
+            [LineBlockTextIterator::TEXT_UNCHANGED_AFTER, "unchanged"],
+        ];
+
+        static::assertSame($expected, $texts);
+    }
+
     public function testGetIteratorSplitOnNewline(): void
     {
         $text1 = "unchanged old1\nunchanged old2 unchanged";
