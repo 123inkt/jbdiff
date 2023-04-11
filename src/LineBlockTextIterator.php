@@ -31,6 +31,16 @@ class LineBlockTextIterator implements IteratorAggregate
     ) {
     }
 
+    public function hasChanges(): bool
+    {
+        $fragments = 0;
+        foreach ($this->blocks as $block) {
+            $fragments += count($block->fragments);
+        }
+
+        return $fragments > 0;
+    }
+
     /**
      * @return Traversable<array{0: self::TEXT_*, 1: string}>
      */

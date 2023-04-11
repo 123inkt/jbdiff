@@ -21,7 +21,9 @@ class LineBlockTextIteratorTest extends TestCase
         $fragments  = [new DiffFragment(10, 15, 10, 15), new DiffFragment(24, 29, 24, 29)];
         $lineBlocks = [new LineBlock($fragments, new Range(0, 39, 0, 39), 1, 1)];
 
-        $texts = iterator_to_array(new LineBlockTextIterator($text1, $text2, $lineBlocks), false);
+        $iterator = new LineBlockTextIterator($text1, $text2, $lineBlocks);
+        static::assertTrue($iterator->hasChanges());
+        $texts = iterator_to_array($iterator, false);
 
         $expected = [
             [LineBlockTextIterator::TEXT_UNCHANGED_BEFORE, "unchanged "],
@@ -44,7 +46,9 @@ class LineBlockTextIteratorTest extends TestCase
         $fragments  = [];
         $lineBlocks = [new LineBlock($fragments, new Range(0, 9, 0, 9), 1, 1)];
 
-        $texts = iterator_to_array(new LineBlockTextIterator("unchanged", "unchanged", $lineBlocks), false);
+        $iterator = new LineBlockTextIterator("unchanged", "unchanged", $lineBlocks);
+        static::assertFalse($iterator->hasChanges());
+        $texts = iterator_to_array($iterator, false);
 
         $expected = [
             [LineBlockTextIterator::TEXT_UNCHANGED_BEFORE, "unchanged"],
