@@ -70,6 +70,22 @@ class BitSet implements Stringable
     /**
      * @return array<int, int>
      */
+    public function __serialize(): array
+    {
+        return $this->words;
+    }
+
+    /**
+     * @param array<int, int> $data
+     */
+    public function __unserialize(array $data): void
+    {
+        $this->words = $data;
+    }
+
+    /**
+     * @return array<int, int>
+     */
     private function getWords(int $fromIndex, ?int $toIndex = null): array
     {
         if ($fromIndex === $toIndex) {

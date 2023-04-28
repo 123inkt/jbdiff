@@ -117,4 +117,16 @@ class BitSetTest extends TestCase
 
         static::assertSame($expected, $string);
     }
+
+    public function testSerialize(): void
+    {
+        $bitSet = new BitSet();
+        $bitSet->set(5, 6);
+        $bitSet->set(200, 201);
+
+        /** @var BitSet $newBitSet */
+        $newBitSet = unserialize(serialize($bitSet));
+
+        static::assertEquals($bitSet, $newBitSet);
+    }
 }
