@@ -84,6 +84,10 @@ class BitSet implements Stringable
         $this->words = $data;
     }
 
+    /**
+     * Convert the BitSet to binary string, which can be turned into BitSet again via @see BitSet::fromBinaryString. Note: this method
+     * is not compatible between 32-bit and 64-bit systems.
+     */
     public function toBinaryString(): string
     {
         if (count($this->words) === 0) {
@@ -101,6 +105,10 @@ class BitSet implements Stringable
         return pack(PHP_INT_SIZE === 4 ? 'N*' : 'J*', ...$words);
     }
 
+    /**
+     * Convert the BitSet to base64 encode binary string, which can be turned into BitSet again via @see BitSet::fromBase64String. Note: this method
+     * is not compatible between 32-bit and 64-bit systems.
+     */
     public function toBase64String(): string
     {
         return base64_encode($this->toBinaryString());
