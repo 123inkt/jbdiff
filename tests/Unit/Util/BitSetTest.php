@@ -5,6 +5,7 @@ namespace DR\JBDiff\Tests\Unit\Util;
 
 use AssertionError;
 use DR\JBDiff\Util\BitSet;
+use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -128,5 +129,52 @@ class BitSetTest extends TestCase
         $newBitSet = unserialize(serialize($bitSet));
 
         static::assertEquals($bitSet, $newBitSet);
+    }
+
+    public function testSerializeBinaryString(): void
+    {
+        $bitSet = new BitSet();
+        $bitSet->set(0, 500);
+
+        $binaryString = $bitSet->toBinaryString();
+        $newBitSet    = BitSet::fromBinaryString($binaryString);
+
+        static::assertEquals($bitSet, $newBitSet);
+    }
+
+    public function testSerializeBinaryStringEmptyBitSet(): void
+    {
+        $bitSet = new BitSet();
+
+        $binaryString = $bitSet->toBinaryString();
+        $newBitSet    = BitSet::fromBinaryString($binaryString);
+
+        static::assertEquals($bitSet, $newBitSet);
+    }
+
+    public function testSerializeBinaryStringUnpackFailure(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unable to unpack from binary string');
+        BitSet::fromBinaryString("\x01\x02");
+    }
+
+    public function testSerializeBase64String(): void
+    {
+        $bitSet = new BitSet();
+        $bitSet->set(5, 6);
+        $bitSet->set(200, 201);
+
+        $base64String = $bitSet->toBase64String();
+        $newBitSet    = BitSet::fromBase64String($base64String);
+
+        static::assertEquals($bitSet, $newBitSet);
+    }
+
+    public function testInvalidBase64String(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unable to decode base64 string: ##');
+        BitSet::fromBase64String('##');
     }
 }
