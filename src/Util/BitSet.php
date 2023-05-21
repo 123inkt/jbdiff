@@ -97,7 +97,7 @@ class BitSet implements Stringable
         $words = [];
 
         // ensure all slots between 0 and maxKey have a value
-        $maxKey = max(...array_keys($this->words));
+        $maxKey = max(0, ...array_keys($this->words));
         for ($i = 0; $i <= $maxKey; $i++) {
             $words[$i] = $this->words[$i] ?? 0;
         }
