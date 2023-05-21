@@ -152,6 +152,13 @@ class BitSetTest extends TestCase
         static::assertEquals($bitSet, $newBitSet);
     }
 
+    public function testSerializeBinaryStringUnpackFailure(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unable to unpack from binary string');
+        BitSet::fromBinaryString("\x01\x02");
+    }
+
     public function testSerializeBase64String(): void
     {
         $bitSet = new BitSet();
