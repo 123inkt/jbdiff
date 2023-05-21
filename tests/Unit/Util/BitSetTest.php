@@ -142,6 +142,17 @@ class BitSetTest extends TestCase
         static::assertEquals($bitSet, $newBitSet);
     }
 
+    public function testSerializeBinaryStringSingleEntry(): void
+    {
+        $bitSet = new BitSet();
+        $bitSet->set(5, 6);
+
+        $binaryString = $bitSet->toBinaryString();
+        $newBitSet    = BitSet::fromBinaryString($binaryString);
+
+        static::assertEquals($bitSet, $newBitSet);
+    }
+
     public function testSerializeBinaryStringEmptyBitSet(): void
     {
         $bitSet = new BitSet();
