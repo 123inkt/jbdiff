@@ -67,7 +67,7 @@ class Character
             return false;
         }
 
-        static $table;
+        static $table = null;
         $table ??= require dirname(__DIR__, 2) . '/resources/NonContinuousScriptLookupTable.php';
 
         return $table[$codePoint] ?? true;
@@ -75,7 +75,6 @@ class Character
 
     public static function isWhiteSpace(string $char): bool
     {
-        // TODO optimize function call. Replace calls with const
         return self::IS_WHITESPACE[$char] ?? false;
     }
 

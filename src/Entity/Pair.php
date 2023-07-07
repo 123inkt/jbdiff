@@ -79,7 +79,7 @@ class Pair implements EquatableInterface, Stringable
      */
     public static function empty(): Pair
     {
-        static $pair;
+        static $pair = null;
         $pair ??= new Pair(null, null);
 
         return $pair;
