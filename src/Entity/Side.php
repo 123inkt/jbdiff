@@ -69,14 +69,14 @@ class Side
 
     private static function left(): Side
     {
-        static $left;
+        static $left = null;
 
         return $left ??= new Side(self::LEFT);
     }
 
     private static function right(): Side
     {
-        static $right;
+        static $right = null;
 
         return $right ??= new Side(self::RIGHT);
     }
