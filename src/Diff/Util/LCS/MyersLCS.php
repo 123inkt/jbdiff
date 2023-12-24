@@ -113,8 +113,8 @@ class MyersLCS
 
             // :loop
             for ($d = 0; $d <= $halfD; ++$d) {
-                $L = $newLength + max(-$d, -$newLength + (($d ^ $newLength) & 1)); // phpcs:ignore
-                $R = $newLength + min($d, $oldLength - (($d ^ $oldLength) & 1));   // phpcs:ignore
+                $L = $newLength + max(-$d, -$newLength + (($d ^ $newLength) & 1));
+                $R = $newLength + min($d, $oldLength - (($d ^ $oldLength) & 1));
 
                 for ($k = $L; $k <= $R; $k += 2) {
                     $x = ($k === $L || ($k !== $R && $this->vForward[$k - 1] < $this->vForward[$k + 1]))
