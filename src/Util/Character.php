@@ -68,6 +68,7 @@ class Character
         }
 
         static $table = null;
+        /** @var array<int, false> $table */
         $table ??= require dirname(__DIR__, 2) . '/resources/NonContinuousScriptLookupTable.php';
 
         return $table[$codePoint] ?? true;

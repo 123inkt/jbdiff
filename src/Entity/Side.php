@@ -69,6 +69,7 @@ class Side
 
     private static function left(): Side
     {
+        /** @var ?Side $left */
         static $left = null;
 
         return $left ??= new Side(self::LEFT);
@@ -76,6 +77,7 @@ class Side
 
     private static function right(): Side
     {
+        /** @var ?Side $right */
         static $right = null;
 
         return $right ??= new Side(self::RIGHT);

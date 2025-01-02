@@ -26,8 +26,8 @@ use DR\JBDiff\Util\Character;
 class WordChunkOptimizer extends AbstractChunkOptimizer
 {
     /**
-     * @param InlineChunk[] $words1
-     * @param InlineChunk[] $words2
+     * @param list<InlineChunk> $words1
+     * @param list<InlineChunk> $words2
      */
     public function __construct(
         array $words1,
