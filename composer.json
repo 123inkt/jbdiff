@@ -28,7 +28,7 @@
     },
     "require-dev": {
         "digitalrevolution/accessorpair-constraint": "^2.1.18",
-        "digitalrevolution/phpunit-file-coverage-inspection": "^2.1",
+        "digitalrevolution/phpunit-file-coverage-inspection": "^3.0",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.8",
         "phpmd/phpmd": "^2.15",
