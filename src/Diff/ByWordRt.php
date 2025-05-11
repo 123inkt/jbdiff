@@ -81,7 +81,7 @@ class ByWordRt
     }
 
     /**
-     * @return InlineChunk[]
+     * @return list<InlineChunk>
      */
     public static function getInlineChunks(CharSequence $text): array
     {

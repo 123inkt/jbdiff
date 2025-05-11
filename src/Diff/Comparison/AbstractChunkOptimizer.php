@@ -10,6 +10,7 @@ use DR\JBDiff\Diff\DiffIterableUtil;
 use DR\JBDiff\Entity\Range;
 use DR\JBDiff\Entity\Side;
 use DR\JBDiff\Util\TrimUtil;
+
 use function count;
 
 /**
@@ -21,8 +22,8 @@ abstract class AbstractChunkOptimizer
     private array $ranges = [];
 
     /**
-     * @param T[]                       $data1
-     * @param T[]                       $data2
+     * @param list<T>                   $data1
+     * @param list<T>                   $data2
      * @param FairDiffIterableInterface $iterable
      */
     public function __construct(

@@ -122,6 +122,7 @@ class BitSet implements Stringable
             return $bitSet;
         }
 
+        /** @var list<int>|false $words */
         $words = unpack(PHP_INT_SIZE === 4 ? 'N*' : 'J*', $data);
         if ($words === false || count($words) === 0) {
             throw new InvalidArgumentException('Unable to unpack from binary string: ' . base64_encode($data));
